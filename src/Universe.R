@@ -43,7 +43,7 @@ args_err <- function(opt) {
 # (*) Valores por defecto
 # - para ejecutar desde RStudio hay que dar un valor a esta variable. Definira el path del working directory
 # - para ejecutar con Rscript desde linea de comandos habra que incluir la opcion -w con el working directory
-default_working_directory <- "C:/Users/cliente/Documents/SourceTreeReposGITHUB/gr-R_curso_gr"
+default_working_directory <- ""
 
 # (*) Recibir valores
 option_list <- list(
