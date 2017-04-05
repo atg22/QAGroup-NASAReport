@@ -1,0 +1,1 @@
+Directorio donde se almacenarán los ficheros resultado de la ejecución del código R (informe generado, ...).
