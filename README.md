@@ -92,5 +92,30 @@ El informe quedará almacenado en:
 /home/user1/QAGroup-NASAReport/out
 ```
 
+## Autenticación con las APIs de NASA
+Para usar las APIs de NASA no es necesario autenticarse. Sin embargo, si vas a hacer un uso intensivo de las mismas es aconsejable.
+
+Se establecen límites de consultas que son mucho menores sin autenticación (haciendo uso de la DEMO_KEY). 
+
+Para ver la configuración actual consultar: https://api.nasa.gov/api.html#authentication
+
+
+El código disponible en este repositorio hace uso de la DEMO_KEY por lo que si se ejecuta varias veces es posible que se genere el error:
+```
+Error in open.connection(con, "rb") : HTTP error 429.
+```
+al hacer alguna petición a la API.
+
+Para solucionarlo será necesario solicitar una 'NASA Developer Key' en el siguiente enlace y sustituir la línea de código:
+```
+nasa_key <- "DEMO_KEY"
+```
+por:
+```
+nasa_key <- "<NASA_Developer_Key>"   # Clave que te proporcionan desde el Portal de la NASA
+```
+Asi el número de peticiones que se autorizarán por hora/día será mayor. Si aun así no es suficiente se puede contactar con NASA para ampliar los límites.
+
+
 
 

@@ -84,7 +84,7 @@ get_spain_meteorites <- function(meteoritos_df) {
 # CONECTA VIA API REST CON NASA PARA DESCARGAR IMAGENES SATELITALES
 # (Astronomic Picture Of the Day)
 # ------------------------------------------------------------------------
-get_API_nasa_Satellite_DC_images <- function() {
+get_API_nasa_Satellite_DC_images <- function(nasa_key) {
   
   # Parametros
   DC_longitude <- "-3.66436260"
@@ -98,7 +98,7 @@ get_API_nasa_Satellite_DC_images <- function() {
   dates_list <- fromJSON(paste("https://api.nasa.gov/planetary/earth/assets?lon=",
                                DC_longitude, "&lat=", DC_latitude, 
                                "&begin=", lastyeardate, "&end=", currentdate, 
-                               "&api_key=DEMO_KEY", sep=""))
+                               "&api_key=", nasa_key, sep=""))
   dates_df <- dates_list$results
   dates <- substr(dates_df$date, 0, 10)
   dates <- sort(dates)
@@ -109,7 +109,7 @@ get_API_nasa_Satellite_DC_images <- function() {
     #Sys.sleep(60)
     first_image_info <- fromJSON(paste("https://api.nasa.gov/planetary/earth/imagery?lon=",
                                  DC_longitude, "&lat=", DC_latitude, 
-                                 "&date=", date, "&cloud_score=True&api_key=DEMO_KEY", sep=""))
+                                 "&date=", date, "&cloud_score=True&api_key=", nasa_key, sep=""))
     
     if (!(is.null(first_image_info$cloud_score))) {
       if (as.numeric(first_image_info$cloud_score)<0.25) {
@@ -127,7 +127,7 @@ get_API_nasa_Satellite_DC_images <- function() {
     #Sys.sleep(60)
     second_image_info <- fromJSON(paste("https://api.nasa.gov/planetary/earth/imagery?lon=",
                                        DC_longitude, "&lat=", DC_latitude, 
-                                       "&date=", date, "&cloud_score=True&api_key=DEMO_KEY", sep=""))
+                                       "&date=", date, "&cloud_score=True&api_key=", nasa_key, sep=""))
     
     if (!(is.null(second_image_info$cloud_score))) {
       if (as.numeric(second_image_info$cloud_score)<0.25) {

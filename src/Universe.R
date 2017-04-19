@@ -79,9 +79,10 @@ source("src/Universe_functions.R")
 dir.create("input", showWarnings=FALSE)
 
 # Llamada a las funciones que conectan con las web de NASA y descargan la info
+nasa_key <- "DEMO_KEY"
 meteoritos_df <- get_CSV_nasa_meteoritos()
 meteoritos_spain_df <- get_spain_meteorites(meteoritos_df)
-images_info <- get_API_nasa_Satellite_DC_images()
+images_info <- get_API_nasa_Satellite_DC_images(nasa_key)
 
 
 
