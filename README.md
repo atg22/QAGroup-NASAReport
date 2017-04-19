@@ -106,7 +106,7 @@ Error in open.connection(con, "rb") : HTTP error 429.
 ```
 al hacer alguna petición a la API.
 
-Para solucionarlo será necesario solicitar una 'NASA Developer Key' en el siguiente enlace y sustituir la línea de código:
+Para solucionarlo será necesario solicitar una 'NASA Developer Key' en el siguiente enlace y en src/Universe.R sustituir la línea de código:
 ```
 nasa_key <- "DEMO_KEY"
 ```
